@@ -7,27 +7,60 @@
     <title>Quizapp</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="node_modules\bootstrap\dist\css\bootstrap.min.css">
+    <script src="game.js"></script>
 </head>
 
-<body>
+<body onload="nextQuestion()">
+
+    <nav class="navbar-light head navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">
+            <img src="img/Quest.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+            Quizzy
+        </a>
+    </nav>
+
     <h1>The awesome HTML Quiz</h1>
+
+    <div id="correct-answer" class="alert alert-success d-none" role="alert">
+        Deine Antwort war richtig!
+    </div>
+
+    <div id="wrong-answer" class="alert alert-danger d-none" role="alert">
+        Deine Antwort war leider falsch!
+    </div>
+
 
     <div class="card" style="width: 18rem;">
         <img src="img/testimg.JPG" class="card-img-top" alt="...">
+        <div class="progress">
+            <div id="progress-bar" class="progress-bar" role="progressbar" style="width:0%;" >25%</div>
+          </div>
         <div class="card-body">
-            <p class="card-text">In diesem Abschnitt wird eine Frage gestellt.</p>
+            <p class="card-text" id="question">In diesem Abschnitt wird eine Frage gestellt.</p>
         </div>
     </div>
 
-    
+
     <div class="mt-4">
-    <button class="btn btn-primary">Antwort A</button>
-    <button class="btn btn-primary">Antwort B</button>
-    <button class="btn btn-primary">Antwort C</button>
-    <button class="btn btn-primary">Antwort D</button>
+        <button id="answer1" onclick="answer(1)" class="btn btn-outline-primary"></button>
+        <button id="answer2" onclick="answer(2)" class="btn btn-outline-primary"></button>
+        <button id="answer3" onclick="answer(3)" class="btn btn-outline-primary"></button>
+        <button id="answer4" onclick="answer(4)" class="btn btn-outline-primary"></button>
     </div>
 
+<div>
+    <button onclick="nextQuestion()" id="next-btn" class="mt-4 btn btn-info d-none">Nächste Frage</button>
+</div>
 
+
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3 foot" style="background-color: #007bff">
+            © 2020 Copyright:
+            <a class="text-dark" href="https://captains-pride.com" target="_blank">made by Captain's pride technologies</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 </body>
 
 </html>

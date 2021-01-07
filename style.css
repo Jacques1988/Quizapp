@@ -1,5 +1,35 @@
 body {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
     padding: 16px;
     padding-left:64px;
     padding-right:64px;
+    padding-top:96px;
+    padding-bottom:96px;
+}
+
+.head {
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:80px;
+    z-index:1;
+    margin-bottom:2rem;
+}
+
+.foot {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    position:fixed;
+    right:0;
+    bottom:0;
+    left:0;
 }
