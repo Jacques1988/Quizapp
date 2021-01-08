@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="node_modules\bootstrap\dist\css\bootstrap.min.css">
     <script src="game.js"></script>
+    <script src="loadquestions.js"></script>
 </head>
 
 <body onload="nextQuestion()">
-
     <nav class="navbar-light head navbar-dark bg-primary">
         <a class="navbar-brand" href="#">
             <img src="img/Quest.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -19,8 +19,12 @@
         </a>
     </nav>
 
+    
     <h1>The awesome HTML Quiz</h1>
 
+    <div id="quizfinishcontainer" class="d-none"><h2>You won!!!</h2></div>
+
+    <div id="quizcontainer" class="d-none">
     <div id="correct-answer" class="alert alert-success d-none" role="alert">
         Deine Antwort war richtig!
     </div>
@@ -41,15 +45,17 @@
     </div>
 
 
-    <div class="mt-4">
-        <button id="answer1" onclick="answer(1)" class="btn btn-outline-primary"></button>
-        <button id="answer2" onclick="answer(2)" class="btn btn-outline-primary"></button>
-        <button id="answer3" onclick="answer(3)" class="btn btn-outline-primary"></button>
-        <button id="answer4" onclick="answer(4)" class="btn btn-outline-primary"></button>
+    <div class="mt-4 answercontainer">
+        <button id="answer1" onclick="answer(1)" class="answerbtn btn btn-outline-primary"></button>
+        <button id="answer2" onclick="answer(2)" class="answerbtn btn btn-outline-primary"></button>
+        <button id="answer3" onclick="answer(3)" class="answerbtn btn btn-outline-primary"></button>
+        <button id="answer4" onclick="answer(4)" class="answerbtn btn btn-outline-primary"></button>
     </div>
+
 
 <div>
     <button onclick="nextQuestion()" id="next-btn" class="mt-4 btn btn-info d-none">Nächste Frage</button>
+</div>
 </div>
 
 

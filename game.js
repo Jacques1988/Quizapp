@@ -1,44 +1,57 @@
 
-
-let question_1 = "Wer hat HTML erfunden?";
-let question_1_answer_1 = "Robbie Williams";
-let question_1_answer_2 = "Lady Gaga";
-let question_1_answer_3 = "Tim Berner`s Lee";
-let question_1_answer_4 = "Justin Biber";
-
-let question_2 = "Was bedeutet das HTML Tag &lta&gt?"
-let question_2_answer_1 = "Text Fett";
-let question_2_answer_2 = "Container";
-let question_2_answer_3 = "Link";
-let question_2_answer_4 = "Kursiv";
+let allQuestions = [
+    {
+        'question': "Wer hat HTML erfunden?",
+        'answer_1': "Robbie Williams",
+        'answer_2': "Lady Gaga",
+        'answer_3': "Tim Berner`s Lee",
+        'answer_4': "Justin Biber",
+        'right_answer': 3
+    },
+    {
+        'question': "Was bedeutet das HTML Tag &lta&gt?",
+        'answer_1': "Text Fett",
+        'answer_2': "Container",
+        'answer_3': "Link",
+        'answer_4': "Kursiv",
+        'right_answer': 3
+    },
+    {
+        'question': "Wie bindet man eine Website in eine Website ein?",
+        'answer_1': "&lt;iframe&gt;, &ltframe&gt, &ltframeset&gt",
+        'answer_2': "&lt;iframe&gt;",
+        'answer_3': "&lt;frame&gt;",
+        'answer_4': "&lt;frameset&gt;",
+        'right_answer': 2
+    },
+]
 
 let right_answer;
 let question_number = 0;
 let progress = 0;
 
 function nextQuestion() {
-    question_number = question_number + 1;
-    progress = question_number * 10;
-    document.getElementById('progress-bar').innerHTML = progress + "%";
-    document.getElementById('progress-bar').style.width = progress + "%";
-    if (question_number == 1) {
-        document.getElementById('question').innerHTML = question_1;
-        document.getElementById('answer1').innerHTML = question_1_answer_1;
-        document.getElementById('answer2').innerHTML = question_1_answer_2;
-        document.getElementById('answer3').innerHTML = question_1_answer_3;
-        document.getElementById('answer4').innerHTML = question_1_answer_4;
-        right_answer = 3;
-        console.log(question_number);
-    }
-    if (question_number == 2) {
-        document.getElementById('question').innerHTML = question_2;
-        document.getElementById('answer1').innerHTML = question_2_answer_1;
-        document.getElementById('answer2').innerHTML = question_2_answer_2;
-        document.getElementById('answer3').innerHTML = question_2_answer_3;
-        document.getElementById('answer4').innerHTML = question_2_answer_4;
-        right_answer = 3;
+    hideElements();
+    document.getElementById('quizcontainer').classList.remove('d-none');
+    if (question_number == allQuestions.length) {
+        finishQuiz();
+    } else {
+
+
+        question_number = question_number + 1;
+        progress = Math.round((question_number / allQuestions.length) * 100);
+        document.getElementById('progress-bar').innerHTML = progress + "%";
+        document.getElementById('progress-bar').style.width = progress + "%";
+        loadQuestion();
     }
 }
+
+function hideElements() {
+    document.getElementById('next-btn').classList.add('d-none');
+    document.getElementById('correct-answer').classList.add('d-none');
+    document.getElementById('wrong-answer').classList.add('d-none');
+}
+
 
 function answer(a) {
 
@@ -50,4 +63,9 @@ function answer(a) {
         document.getElementById('wrong-answer').classList.remove('d-none');
         document.getElementById('correct-answer').classList.add('d-none');
     }
+}
+
+function finishQuiz(){
+    document.getElementById('quizcontainer').classList.add('d-none');
+    document.getElementById('quizfinishcontainer').classList.remove('d-none');
 }
